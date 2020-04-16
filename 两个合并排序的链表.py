@@ -11,12 +11,8 @@
 class Solution:
     # 返回合并后列表
     def Merge(self, pHead1, pHead2):
-    	if not pHead1:
-    		return pHead2
-    	if not pHead2:
-    		return pHead1
-
-    	res = ListNode(None)
+    	root = ListNode(None)
+    	cur = root
     	while pHead1 and pHead2:
     		if pHead1.val >= pHead2.val:
     			new = pHead2
@@ -24,7 +20,7 @@ class Solution:
     		else:
     			new = pHead1
     			pHead1 = pHead1.next
-    		res.next = new
-    		res = new
-    	res.next = pHead1 or pHead2
-    	return res.next
+    		cur.next = new
+    		cur = new
+    	cur.next = pHead1 or pHead2
+    	return cur.next
