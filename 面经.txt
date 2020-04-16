@@ -18,3 +18,4 @@ printf "%xn" 10804, 将线程PID转化为16进制
 使用strace跟踪执行过程中的系统调用
 跟踪pid为12345的进程中所有线程的read和write系统调用，输出字符串的长度限制为1024：
 strace -s 1024 -f -e trace=read,write -p 12345
+
