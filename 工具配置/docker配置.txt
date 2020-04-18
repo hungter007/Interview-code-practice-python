@@ -1,0 +1,24 @@
+1. 安装docker https://docs.docker.com/engine/install/
+
+2. 启动docker服务 service docker start
+
+3. 拉取镜像(非必需) 
+		docker image ls  查看现有镜像
+		docker image rm [imageName]  删除对应id的镜像文件
+		docker image pull library/hello-world  从library/(这是官方的镜像存放位置) 中拉取名为hello-world的镜像
+
+4. 运行docker
+		docker container run hello-world
+		docker container run -it ubuntu bash  运行终端型的docker
+
+5. 管理本机运行的docker
+		docker container ls  列出本机正在运行的容器
+		docker container ls --all  列出本机所有容器，包括终止运行的容器
+		docker container rm [containerID]  删除
+
+6. 编写dockerfile
+		FROM node:8.4
+		COPY . /app
+		WORKDIR /app
+		RUN npm install xxx
+		EXPOSE 3000
