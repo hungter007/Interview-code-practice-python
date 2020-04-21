@@ -48,7 +48,10 @@ class Spam(metaclass=Singleton):
     def __init__(self, a, b):
         self.a = a
         self.b = b
-        print("Creating spam")
+        print("Creating spam a = {}, b = {}".format(a, b))
 
 
 s1 = Spam(1, 2)
+s2 = Spam(2, 3)
+print(s1.a)
+print(s2.a)
