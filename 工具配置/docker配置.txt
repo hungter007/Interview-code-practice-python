@@ -22,3 +22,64 @@
 		WORKDIR /app
 		RUN npm install xxx
 		EXPOSE 3000
+
+
+
+dockerfile 指令简要说明
+
+ __FROM__ 
+以哪个镜像为基础开始构建.
+ __MAINTAINER__ 
+作者信息.
+ __RUN__ 
+运行一条命令.
+ __CMD__ 
+docker run IMAGE_ID cmd 这里的默认命令.
+ __ENTRYPOINT__ 
+docker run IMAGE_ID cmd 这里的默认命令的前面部分, run 中 cmd 可以作为后续参数.
+ __EXPOSE__ 
+声明会用到的端口.
+ __ENV__ 
+设置环境变量
+ __ADD__ 
+从当前目录复制文件到容器. 会自动处理目录, 压缩包等情况.
+ __COPY__ 
+从当前目录复制文件到容器. 只是单纯地复制文件.
+ __VOLUME__ 
+声明一个数据卷, 可用于挂载.
+ __USER__ 
+RUN 命令执行时的用户.
+ __WORKDIR__ 
+RUN, CMD, ENTRYPOINT 这些命令执行时的当前目录.
+ __ONBUILD__ 
+前缀命令, 放在上面这些命令前面, 表示生成的镜像再次作为"基础镜像"被用于构建时, 要执行的命令.
+
+
+==================================================================
+demo
+#拉取基础镜像
+FROM csighub.tencentyun.com/admin/tlinux2.2-bridge-tcloud-underlay:latest
+
+#作者信息
+MAINTAINER xxx@tencent.com
+
+#声明使用挂载卷
+RUN mkdir /myvol 
+
+VOLUME /myvol 
+
+# 织云包安装
+RUN  /usr/local/bin/pkg_install_batch_nostart.sh  public:clear_disk:1.0.34:server
+# 安装SPP/sf2包
+RUN  /usr/local/bin/pkg_install_batch_nostart.sh  IM_DB:xxxxx_session:1.0.34:plugin
+
+
+# yum 安装工具
+RUN yum install -y make3 git 
+
+# 添加压缩包至镜像，并自动解压
+ADD xxx.tar /tmp
+
+#  添加开机启动脚本到对应目录，容器启动后会拉取执行
+COPY xxx.sh /etc/kickStart.d/
+
