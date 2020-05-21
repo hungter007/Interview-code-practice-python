@@ -1,0 +1,75 @@
+2019-06-19 16:04:08,175 [ThreadPoolExecutor-0_0:16556] [print2:12] [ERROR]- asdffff
+2019-06-19 16:04:40,593 [ThreadPoolExecutor-0_0:13140] [print2:12] [ERROR]- asdffff
+2019-06-19 16:20:13,956 [ThreadPoolExecutor-0_0:20468] [django.request:228] [ERROR]- Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\v_vhzhhuang\Desktop\channel_demo\mysite\chat\views.py", line 38, in index
+    print(asdfff)
+NameError: name 'asdfff' is not defined
+2019-06-19 16:23:51,085 [ThreadPoolExecutor-0_0:18028] [print2:28] [ERROR]- e
+2019-06-19 16:24:31,876 [ThreadPoolExecutor-0_0:5112] [print2:28] [ERROR]- e
+2019-06-19 16:24:48,433 [ThreadPoolExecutor-0_0:23088] [print2:28] [ERROR]- name 'asdfff' is not defined
+2019-06-19 16:49:42,152 [ThreadPoolExecutor-0_0:23012] [print2:28] [ERROR]- name 'aasd' is not defined
+2019-06-19 20:06:24,835 [ThreadPoolExecutor-0_0:14300] [django.request:228] [ERROR]- Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "C:\Users\v_vhzhhuang\Desktop\channel_demo\mysite\chat\views.py", line 19, in nefen
+    back = func(request, *args, **kwargs)
+  File "C:\Users\v_vhzhhuang\Desktop\channel_demo\mysite\chat\views.py", line 41, in index
+    print(aasd)
+NameError: name 'aasd' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\v_vhzhhuang\Desktop\channel_demo\mysite\chat\views.py", line 30, in nefen
+    return JsonResponse("fault")
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\http\response.py", line 552, in __init__
+    'In order to allow non-dict objects to be serialized set the '
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2019-06-21 11:04:46,848 [ThreadPoolExecutor-0_0:24568] [django.request:228] [ERROR]- Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() takes 1 positional argument but 2 were given
+2019-06-26 16:24:32,335 [ThreadPoolExecutor-0_0:6868] [django.request:228] [ERROR]- Internal Server Error: /chat/
+Traceback (most recent call last):
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\v_vhzhhuang\Desktop\channel_demo\mysite\chat\views.py", line 65, in get
+    room_name = r.hget("hash1", "room_name")
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\redis\client.py", line 2645, in hget
+    return self.execute_command('HGET', name, key)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\redis\client.py", line 775, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\redis\client.py", line 789, in parse_response
+    response = connection.read_response()
+  File "C:\Users\v_vhzhhuang\Envs\Django\lib\site-packages\redis\connection.py", line 642, in read_response
+    raise response
+redis.exceptions.ResponseError: WRONGTYPE Operation against a key holding the wrong kind of value

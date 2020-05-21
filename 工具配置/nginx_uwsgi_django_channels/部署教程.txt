@@ -1,0 +1,309 @@
+https://www.cnblogs.com/wdliu/p/10032180.html 
+https://www.cnblogs.com/wdliu/p/8932816.html
+django+uwsgi+daphne+supervisor生产环境部署
+一、前言
+　　在上一篇文章中项目中使用了webscoket进行实时通讯，但是生产环境又使用了django+nginx+uwsgi的部署方式，我们都知道uwsgi并不能处理websocket请求，所以需要asgi服务器来处理websocket请求，官方推荐的asgi服务器是daphne，下面将介绍详细的部署步骤。
+
+ 
+
+二、软件安装
+　　之前已经写过一一篇关于django+nginx+uwsgi的部署方式地址:https://www.cnblogs.com/wdliu/p/8932816.html，这里就不多说了，以下介绍daphne、supervisor、以及nginx代理websocket的安装配置。
+
+1.部署daphne
+项目配置文件目录(wsgi.py同级)下创创建文件asgi.py,加入应用：
+
+复制代码
+"""
+ASGI entrypoint. Configures Django and then runs the application
+defined in the ASGI_APPLICATION setting.
+"""
+
+import os
+import django
+from channels.routing import get_default_application
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+django.setup()
+application = get_default_application()
+复制代码
+启动daphne 测试是否正常运行(成功以后退出)
+
+daphne -p 8001 devops.asgi:application
+ 
+
+2.安装supervisor
+　　supervisor是由python实现的一个进程管理工具，可以确保所管理的进程一直运行，当进程一点中断supervisord会自动进行重启。
+
+安装步骤：
+
+复制代码
+#yum安装：
+yum install python-setuptools
+easy_install supervisor
+或者
+yum install -y epel-release
+yum install -y supervisor  
+
+#手动安装：
+wget https://pypi.python.org/packages/source/s/supervisor/supervisor-3.1.3.tar.gz
+tar zxf supervisor-3.1.3.tar.gz
+cd supervisor
+python setup.py install
+
+#pip安装：
+pip install supervisor
+复制代码
+生成配置文件
+
+echo_supervisord_conf > /etc/supervisord.conf
+ 
+
+3.使用supervisor管理daphne进程
+编辑/etc/supervisord.conf加入配置
+
+按 Ctrl+C 复制代码
+[program:daphne]
+directory=/opt/app/devops  #项目目录
+command=daphne -b 127.0.0.1 -p 8001 --proxy-headers devops.asgi:application #启动命令
+autostart=true
+autorestart=true
+stdout_logfile=/tmp/websocket.log  #日志
+redirect_stderr=true
+按 Ctrl+C 复制代码
+启动supervisor
+
+supervisord -c /etc/supervisord.conf
+启动或者停止daphne
+
+supervisorctl start daphne
+supervisorctl stop daphne
+ 
+
+三、代理webscoket
+修改nginx配置文件
+
+复制代码
+#####转发配置
+
+upstream wsbackend {
+         server 127.0.0.1:8001;
+}
+
+######location配置
+
+ location /ws/deploy {
+        proxy_pass http://wsbackend;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $server_name;
+  }
+----------------------------------------------------------------------------------------------------------------------
+官方文档:http://nginx.org/
+
+安装当前稳定版本：1.12.2
+
+安装步骤：
+
+复制代码
+#!/bin/bash
+nginx_version=nginx-1.12.0
+if [ -f "/usr/bin/wget" ];then
+  echo "开始下载nginx...."
+  wget http://nginx.org/download/$nginx_version.tar.gz
+  if [ -f "./$nginx_version.tar.gz" ]; then
+  echo "$nginx_version下载完毕！"
+  fi
+  echo "开始安装nginx依赖包......"
+  yum install g++ gcc openssl-devel pcre-devel zlib-devel -y
+  echo "解压nginx·......"
+  tar xzvf $nginx_version.tar.gz
+  echo "开始编译........"
+  cd $nginx_version
+  ./configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-stream --with-stream_ssl_module
+  make && make install
+  echo "nginx 安装完毕！"
+else
+  echo "wget is not found!"
+fi
+复制代码
+启动与停止nginx：
+
+####启动
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+
+####停止
+ /usr/local/nginx/sbin/nginx -s stop
+二、uwsgi安装配置
+官方文档：http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/Configuration.html
+
+安装：
+
+###方法一
+pip3 install uwsgi
+###方法二：
+python3 -m pip install uwsgi
+ 配置uwsgi：uwsgi可支持命令行启动、json格式配置文件启动、ini格式配置文件启动、xml配置文件启动
+
+命令行启动：可以使用uwsgi --help查看启动选项
+
+uwsgi --http :8000 --chdir /opt/app/devops --wsgi-file /opt/app/devops/devops/wsgi.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
+ini配置文件启动：
+
+常用配置参数
+
+复制代码
+http ： #协议类型和端口号
+
+processes ： #开启的进程数量
+
+workers ： #开启的进程数量，等同于processes（官网的说法是spawn the specified number ofworkers / processes）
+
+chdir ： #指定运行目录（chdir to specified directory before apps loading）
+
+wsgi-file ： #载入wsgi-file（load .wsgi file）
+
+stats ： #在指定的地址上，开启状态服务（enable the stats server on the specified address）
+
+threads ： #运行线程。由于GIL的存在，我觉得这个真心没啥用。（run each worker in prethreaded mode with the specified number of threads）
+
+master ： #允许主进程存在（enable master process）
+
+daemonize ： #使进程在后台运行，并将日志打到指定的日志文件或者udp服务器（daemonize uWSGI）。实际上最常用的，还是把运行记录输出到一个本地文件上。
+
+pidfile ： #指定pid文件的位置，记录主进程的pid号。
+
+vacuum ： #当服务器退出的时候自动清理环境，删除unix socket文件和pid文件（try to remove all of the generated file/sockets）
+log-maxsize ：#记录日志配置最大多少，超过这个数会切割，单位kb
+logto ：#指定输出日志到文件logto = /tmp/uwsgi.log
+复制代码
+在django项目中与manage.py同级目录创建配置文件，这里命名为uwsgi.ini
+
+复制代码
+# uwsgi 配置文件
+[uwsgi]
+#端口
+socket = :8000
+# django项目绝对路径
+chdir = /opt/app/devops
+# 模块路径（项目名称.wsgi）可以理解为wsgi.py的位置
+module = devops.wsgi
+# 允许主进程
+master = true
+#最多进程数
+processes  = 4
+# 退出时候回收pid文件
+vacuum = true
+#日志大小配置500M
+log-maxsize = 500000000 
+#记录日志配置
+logto = /tmp/uwsgi.log
+复制代码
+启动uwsgi服务
+
+ uwsgi --ini /opt/app/devops/uwsgi.ini --daemonize /tmp/uwsgi.log
+ 
+
+三、配置nginx
+nginx主要位置是代理转发作用
+
+nginx.conf
+
+复制代码
+#user  nobody;
+worker_processes  2;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+
+pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    access_log  logs/access.log ;
+    sendfile        on;
+    keepalive_timeout  65;
+    gzip  on;
+    server {
+        listen       80;
+        server_name  localhost;
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+      }
+    server {
+    listen         80; 
+    server_name    10.193.15.50;
+    charset UTF-8;
+    error_log       logs/devops_error.log;
+
+    client_max_body_size 75M;
+
+    location / { 
+        include uwsgi_params;
+        uwsgi_pass 127.0.0.1:8000;
+        uwsgi_read_timeout 5;
+    }   
+    location /static {
+        expires 30d;
+        autoindex on; 
+        add_header Cache-Control private;
+        alias /opt/app/devops/static/;
+     }
+       }    
+}
+复制代码
+启动nginx，访问项目url若出现Exception Value: Invalid HTTP_HOST header异常 ，需要在settings.py中ALLOWED_HOSTS = ['*']
+
+重启脚本centos6.x
+
+复制代码
+#!/bin/bash
+if [ ! -n "$1" ]
+then
+    echo "Usages: sh uwsgiserver.sh [start|stop|restart]"
+    exit 0
+fi
+
+if [ $1 = start ]
+then
+    psid=`ps aux | grep "uwsgi" | grep -v "grep" | wc -l`
+    if [ $psid -gt 4 ]
+    then
+        echo "uwsgi is running!"
+        exit 0
+    else
+        uwsgi /xxx/www/uwsgi.ini --daemonize /var/log/uwsgi.log --post-buffering 32768 --buffer-size 32768
+        echo "Start uwsgi service [OK]"
+    fi
+
+
+elif [ $1 = stop ];then
+    killall -9 uwsgi
+    echo "Stop uwsgi service [OK]"
+elif [ $1 = restart ];then
+    killall -9 uwsgi
+    uwsgi --ini /xxx/www/uwsgi.ini --daemonize /var/log/uwsgi.log  --post-buffering 32768 --buffer-size 32768 --touch-reload "/xxx/www/reload.set"
+    echo "Restart uwsgi service [OK]"
+
+else
+    echo "Usages: sh uwsgiserver.sh [start|stop|restart]"
+fi
+复制代码
