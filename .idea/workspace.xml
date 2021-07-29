@@ -26,7 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10a2c672-b058-436b-87b4-093133782328" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/constructMaximumBinaryTree_654.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buildTree_106.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.buildTree_106">
     <configuration name="addTwoNumbers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Interview-code-practice-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,6 +76,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/addTwoNumbers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="buildTree_106" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Interview-code-practice-python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/buildTree_106.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.buildTree_106" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.addTwoNumbers" />
         <item itemvalue="Python.two_sum" />
@@ -202,50 +226,50 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="679" height="466" key="DebuggerActiveHint/0.0.1792.1120@0.0.1792.1120" timestamp="1626877258086" />
-    <state width="1750" height="310" key="GridCell.Tab.0.bottom" timestamp="1627386759802">
+    <state width="1750" height="382" key="GridCell.Tab.0.bottom" timestamp="1627538523940">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638231" />
     <state width="1750" height="310" key="GridCell.Tab.0.bottom/1792.-328.1080.1895/0.0.1792.1057@0.0.1792.1057" timestamp="1627386319429" />
-    <state width="1750" height="310" key="GridCell.Tab.0.bottom/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627386759802" />
-    <state width="1750" height="310" key="GridCell.Tab.0.center" timestamp="1627386759799">
+    <state width="1750" height="382" key="GridCell.Tab.0.bottom/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523940" />
+    <state width="1750" height="382" key="GridCell.Tab.0.center" timestamp="1627538523938">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638228" />
     <state width="1750" height="310" key="GridCell.Tab.0.center/1792.-328.1080.1895/0.0.1792.1057@0.0.1792.1057" timestamp="1627386319426" />
-    <state width="1750" height="310" key="GridCell.Tab.0.center/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627386759799" />
-    <state width="1750" height="310" key="GridCell.Tab.0.left" timestamp="1627386759797">
+    <state width="1750" height="382" key="GridCell.Tab.0.center/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523938" />
+    <state width="1750" height="382" key="GridCell.Tab.0.left" timestamp="1627538523936">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638227" />
     <state width="1750" height="310" key="GridCell.Tab.0.left/1792.-328.1080.1895/0.0.1792.1057@0.0.1792.1057" timestamp="1627386319424" />
-    <state width="1750" height="310" key="GridCell.Tab.0.left/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627386759797" />
-    <state width="1750" height="310" key="GridCell.Tab.0.right" timestamp="1627386759800">
+    <state width="1750" height="382" key="GridCell.Tab.0.left/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523936" />
+    <state width="1750" height="382" key="GridCell.Tab.0.right" timestamp="1627538523939">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638230" />
     <state width="1750" height="310" key="GridCell.Tab.0.right/1792.-328.1080.1895/0.0.1792.1057@0.0.1792.1057" timestamp="1627386319427" />
-    <state width="1750" height="310" key="GridCell.Tab.0.right/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627386759800" />
-    <state width="1750" height="382" key="GridCell.Tab.1.bottom" timestamp="1627271837903">
+    <state width="1750" height="382" key="GridCell.Tab.0.right/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523939" />
+    <state width="1750" height="382" key="GridCell.Tab.1.bottom" timestamp="1627538523944">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638234" />
-    <state width="1750" height="382" key="GridCell.Tab.1.bottom/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627271837903" />
-    <state width="1750" height="382" key="GridCell.Tab.1.center" timestamp="1627271837902">
+    <state width="1750" height="382" key="GridCell.Tab.1.bottom/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523944" />
+    <state width="1750" height="382" key="GridCell.Tab.1.center" timestamp="1627538523942">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638233" />
-    <state width="1750" height="382" key="GridCell.Tab.1.center/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627271837902" />
-    <state width="1750" height="382" key="GridCell.Tab.1.left" timestamp="1627271837901">
+    <state width="1750" height="382" key="GridCell.Tab.1.center/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523942" />
+    <state width="1750" height="382" key="GridCell.Tab.1.left" timestamp="1627538523941">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638232" />
-    <state width="1750" height="382" key="GridCell.Tab.1.left/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627271837901" />
-    <state width="1750" height="382" key="GridCell.Tab.1.right" timestamp="1627271837902">
+    <state width="1750" height="382" key="GridCell.Tab.1.left/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523941" />
+    <state width="1750" height="382" key="GridCell.Tab.1.right" timestamp="1627538523943">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state width="1750" height="382" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1626877638233" />
-    <state width="1750" height="382" key="GridCell.Tab.1.right/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627271837902" />
+    <state width="1750" height="382" key="GridCell.Tab.1.right/1792.-353.1080.1920/0.0.1792.1120@0.0.1792.1120" timestamp="1627538523943" />
     <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626877642034">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -264,6 +288,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Interview_code_practice_python$addTwoNumbers.coverage" NAME="addTwoNumbers Coverage Results" MODIFIED="1626877233299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Interview_code_practice_python$buildTree_106.coverage" NAME="buildTree_106 Coverage Results" MODIFIED="1627538523920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Interview_code_practice_python$two_sum.coverage" NAME="two_sum Coverage Results" MODIFIED="1626877125341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Interview_code_practice_python$test.coverage" NAME="test Coverage Results" MODIFIED="1627394741424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
