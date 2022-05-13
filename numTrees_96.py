@@ -23,3 +23,9 @@ class Solution(object):
             res += count
         self.temp_dict[temp_key] = res
         return res
+
+
+if __name__ == '__main__':
+    so = Solution()
+    res = so.numTrees(1)
+    print res
