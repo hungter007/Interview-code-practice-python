@@ -25,10 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10a2c672-b058-436b-87b4-093133782328" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numTrees_96.py" beforeDir="false" afterPath="$PROJECT_DIR$/numTrees_96.py" afterDir="false" />
-    </list>
+    <list default="true" id="10a2c672-b058-436b-87b4-093133782328" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,6 +195,7 @@
       <workItem from="1628065517998" duration="13000" />
       <workItem from="1642731189022" duration="3003000" />
       <workItem from="1650521765732" duration="1655000" />
+      <workItem from="1652411891866" duration="100000" />
     </task>
     <task id="LOCAL-00001" summary="leetcode add 0721">
       <created>1626874127732</created>
