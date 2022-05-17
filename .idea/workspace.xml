@@ -25,7 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10a2c672-b058-436b-87b4-093133782328" name="Default Changelist" comment="" />
+    <list default="true" id="10a2c672-b058-436b-87b4-093133782328" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +60,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backtrace" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.numTrees_96">
     <configuration name="addTwoNumbers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -196,6 +203,8 @@
       <workItem from="1642731189022" duration="3003000" />
       <workItem from="1650521765732" duration="1655000" />
       <workItem from="1652411891866" duration="100000" />
+      <workItem from="1652671798037" duration="201000" />
+      <workItem from="1652781719022" duration="252000" />
     </task>
     <task id="LOCAL-00001" summary="leetcode add 0721">
       <created>1626874127732</created>
@@ -211,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626877636820</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="78subset">
+      <created>1652671983208</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652671983208</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +260,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="leetcode add 0721" />
     <MESSAGE value="leetcode add_two_numbers 0721" />
-    <option name="LAST_COMMIT_MESSAGE" value="leetcode add_two_numbers 0721" />
+    <MESSAGE value="78subset" />
+    <option name="LAST_COMMIT_MESSAGE" value="78subset" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1878" height="275" key="GridCell.Tab.0.bottom" timestamp="1651124646146">
@@ -287,6 +304,10 @@
     </state>
     <state width="1878" height="366" key="GridCell.Tab.1.right/-1920.269.1920.1080/0.0.1080.1920/-1792.1349.1792.1120@-1920.269.1920.1080" timestamp="1650610456513" />
     <state width="1878" height="275" key="GridCell.Tab.1.right/1920.-343.1080.1920/0.0.1920.1080@0.0.1920.1080" timestamp="1651124646149" />
+    <state x="560" y="277" key="Vcs.Push.Dialog.v2" timestamp="1652671989188">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="277" key="Vcs.Push.Dialog.v2/1920.-343.1080.1920/0.0.1920.1080@0.0.1920.1080" timestamp="1652671989188" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
